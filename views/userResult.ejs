@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<link href="css/stylesheet.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!-- set box1  -->
+<div class="box1">
+ <!--set box2 -->
+ 	<div class="box2">
+ 	<!--set innerbox -->
+	<div class="innerbox">		
+	  <center>		<p><h1><center>Thank you for applying!</center></h1></p>
+	  				<p><h2><center><u>Say hello to all your mates</u></center></h2></p>
+		<ul>
+			<% for (var i = 0; i< data.length; i++) { %>
+			<p><%= data[i].firstname +" " +data[i].lastname %>
+			<% } %></p>
+		</ul>
+
+</center>
+
+	<center>	
+		<form method="get" action="/index">
+			<button class="button" type="Submit">Nevermind, going home! </button>
+		</form>
+	</center>
+	<br />
+
+ 	<!-- close innerbox -->
+	</div>
+ <!--close box2 -->
+ </div>
+<!-- close box1 -->
+</div>
+
+</body>
+</html>

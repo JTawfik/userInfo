@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<link href="css/stylesheet.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<!-- set box1  -->
+<div class="box1">
+ <!--set box2 -->
+ 	<div class="box2">
+ 	<!--set innerbox -->
+	<div class="innerbox">		
+	  <center>	
+
+		<p><h1>Here you go mate:</h1></p>
+
+		<ul>
+		<!-- 	<li> <%= input %></li> -->
+		<% for (i = 0; i < data.length; i++) { %>
+		<% if (input == data[i].firstname || input == data[i].lastname) { %>
+		<p class="result"><%= [i+1] +" - " +data[i].firstname +" " +data[i].lastname %></p>
+		<% } else{ %>
+		<% } %>
+		<% } %>
+		</ul>
+	</center>
+<center>
+	<form method="get" action="/index">
+		<button class="button" type="Submit">Nobody? go home!@#$%</button>
+	</form>
+	</center>
+<br />
+ 	<!-- close innerbox -->
+	</div>
+ <!--close box2 -->
+ </div>
+<!-- close box1 -->
+</div>
+
+</body>
+</html>

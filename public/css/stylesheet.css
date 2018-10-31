@@ -1,0 +1,68 @@
+body {
+   margin: 0;
+   padding: 0;
+   background-color: #77dd77;
+   font-family: Calibri;
+} 
+
+/*First container to wrap and position*/
+.box1 {
+	margin-top: 10%;
+}
+
+.box2 {
+	background-color: #ffffff;
+	margin: auto;
+	width: 400px;
+	height: auto;
+	padding: 5px;
+	border: 1px;
+	box-shadow: 2px 2px 2px 2px #888888;
+	border-radius: 02px;
+
+}
+
+/*Inside the container wrap*/
+.innerbox {
+	text-align: left;
+}
+
+/*Sumbit button styling*/
+
+.button {
+	background: #77dd77;
+	color: white;
+	border-radius: 02px
+	border-style: outset;
+	height: 50px;
+	width: 300px;
+	font: bold 15px arial, sans-serif;
+	text-shadow:none;
+}
+/*text input style*/
+.input {
+	border-radius: 5px;
+	height: 25px;
+	width: 300px;
+}
+
+/*Search result style*/
+
+.result {
+/*border styling*/
+	border-style: solid;
+	border-width: thin 2px 2px; 
+	border-color: #f2f2f2;
+	border-radius: 2%;
+	margin-right: 30%;
+	padding: 10px;
+
+
+/*Text styling*/
+	text-align: left;
+	font-size: 20px;
+}
+
+
+
+
