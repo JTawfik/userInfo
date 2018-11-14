@@ -18,18 +18,21 @@
 		<p><h1>Here you go mate:</h1></p>
 
 		<ul>
-		<!-- 	<li> <%= input %></li> -->
+	
+<!---generate users list--->				
 		<% for (i = 0; i < data.length; i++) { %>
-		<% if (input == data[i].firstname || input == data[i].lastname) { %>
-		<p class="result"><%= [i+1] +" - " +data[i].firstname +" " +data[i].lastname %></p>
+		<% if (input == data[i].firstname || input == data[i].lastname || input == data[i].firstname + ' ' + data[i].lastname) { %>
+		<li class="result">
+		<%- data[i].firstname + " " + data[i].lastname + " / " + data[i].email%></li>
 		<% } else{ %>
 		<% } %>
 		<% } %>
 		</ul>
+
 	</center>
 <center>
 	<form method="get" action="/index">
-		<button class="button" type="Submit">Nobody? go home!@#$%</button>
+		<button class="button" type="Submit">Nobody? going home!</button>
 	</form>
 	</center>
 <br />

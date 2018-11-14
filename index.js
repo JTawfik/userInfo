@@ -37,7 +37,7 @@ app.get('/', ((req, res) => res.render('index', {data: jim})))
 app.get('/search', ((req, res) => res.render('search')))
 
 //aRoutes to result page
-app.get('/result', ((req, res) => res.render('result')))
+app.get('/result', ((req, res) => res.render('result', {data: jim})))
 
 //aRoutes to useradd page
 app.get('/add', ((req, res) => res.render('add')))
@@ -67,10 +67,42 @@ app.post('/search', ((req, res) => {
 	//input check - if it log's correctly 
 	// console.log(`checking ${req.body.search}`)
 
-	res.render('result', {data: jim, input: req.body.search})
+	res.render('result', {input: req.body.myusername, data: jim})
 	
 
 }))
+
+// AJAX MATCH SEARCH ENGINE
+
+app.post('/ajax', (req, res) => {
+  let potentialMatch = []
+  let userInput = req.body.myusername 
+// pulling data from the search bar
+
+  for (var i = 0; i < jim.length; i++) {
+  
+// Loops through the database - json file
+  
+  let fullName = jim[i].firstname + ' ' + jim[i].lastname;
+ 
+// Compares the userinput with the database on different ways
+
+  if(jim[i].firstname.toLowerCase().indexOf(userInput.toLowerCase()) > -1 || 
+    jim[i].lastname.toLowerCase().indexOf(userInput.toLowerCase())  > -1 || 
+    fullName.toLowerCase() === userInput.toLowerCase()) {
+    
+    potentialMatch.push(jim[i])
+    
+    }
+  }
+  
+
+  res.send(potentialMatch)
+
+})
+
+
+
 
 
 // 

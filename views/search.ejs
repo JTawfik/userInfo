@@ -3,6 +3,15 @@
 <head>
 	<title>Search page</title>
 <link href="css/stylesheet.css" rel="stylesheet" type="text/css">
+
+<!-- Including Jquery -->
+<script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous">
+    	
+    </script>
+
 </head>
 <body>
 <!-- set box1  -->
@@ -17,13 +26,19 @@
 		<form method="POST">
 
 		<p>	
-		 	<input class="input" type="text" name="search">
+		     
+		  <input autocomplete="off" id="textBox" class="input" type="text" name="myusername" list='cat' value="">
+      <br><br>
+
 		</p>
 		
 		<p>
 			<button class="button" type="Submit">Submit</button>
 		</p>
 	</form>
+
+			<datalist id="cat" class=""></datalist>
+
 
 	<form method="get" action="/index">
 		<button class="button" type="Submit">Nobody? go home!@#$%</button>
@@ -39,6 +54,35 @@
 <!-- close box1 -->
 </div>
 
+<!-- JS -->
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+      let lastTime=0
+      let currentTime=0
+      let emptyArray = []
+      
+   
+      $("#textBox").keyup(function(){
+        let myusername = $("#textBox").val();
+        currentTime= Date.now()-lastTime
+        if (currentTime>3000) 
+        
+        {
+        
+            $.post('/ajax',{myusername:myusername}, function(response, status){
+             emptyArray = response;
+            lastTime=Date.now()
+
+            })
+        }
+          $('#cat').empty();
+        for (var i = 0; i < emptyArray.length; i++) {
+                $('#cat').append("<option value='"+emptyArray[i].firstname+" "+emptyArray[i].lastname+ "'></option>")
+              }
+      })
+  })
+</script>
 
 </body>
 </html>
